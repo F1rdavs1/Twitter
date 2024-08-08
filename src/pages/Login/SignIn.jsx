@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
-import TwitterIcon from "../../assets/Images/Icons";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Context } from "../../context/Context";
+import { TwitterIcon } from "../../assets/Images/Icons";
 
 function SignIn() {
   const { setToken } = useContext(Context);
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const data = {
-      login: e.target.login.value,
-      password: e.target.password.value,
+      login: e.target.login.value.trim(),
+      password: e.target.password.value.trim(),
     };
     if (data.login == "Firdavs" && data.password == "123") {
       setToken(data);
@@ -27,7 +27,7 @@ function SignIn() {
       className="w-[450px] mx-auto mt-[60px]"
     >
       <Link to={"/"}>
-        <TwitterIcon />
+        <TwitterIcon/>
       </Link>
       <h1 className="my-[36px] font-black	text-[42px] leading-[49.22px] text-[#000000]">
         Log in to Twitter

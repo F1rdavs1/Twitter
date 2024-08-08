@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TwitterIcon from "../../assets/Images/Icons";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { TwitterIcon } from "../../assets/Images/Icons";
 
 function SignUp() {
   const handleSumbitForm = (e) => {
@@ -16,7 +16,7 @@ function SignUp() {
       autoComplete="off"
     >
       <Link className="flex justify-center mt-[30px] mb-[43px]">
-        <TwitterIcon />
+        <TwitterIcon/>
       </Link>
       <h1 className="mb-[35px] font-bold text-[30px] leading-[39.9px] text-[#000000]">
         Create an account
