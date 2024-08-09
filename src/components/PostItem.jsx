@@ -1,5 +1,5 @@
 import React from "react";
-import { DotsIcon } from "../assets/Images/Icons";
+import { CommentIcon, DotsIcon, LikeIcon, ReplyIcon, ShareIcon,  StatsticIcon } from "../assets/Images/Icons";
 
 function PostItem({ item }) {
   return (
@@ -24,6 +24,28 @@ function PostItem({ item }) {
         ) : (
           ""
         )}
+        <div className="flex items-center space-x-[100px] mt-[22px]">
+          <button className="flex items-center space-x-[10px]">
+            <CommentIcon/>
+            <span>{item.commentComment}</span>
+          </button>
+          <button className="flex items-center space-x-[10px]">
+            <ReplyIcon/>
+            <span>{item.commentComment}</span>
+          </button>
+          <button className="flex items-center space-x-[10px]">
+            <LikeIcon/>
+            <span>{item.commentComment}</span>
+          </button>
+          <button className="flex items-center space-x-[10px]">
+            <ShareIcon/>
+            <span>{item.commentComment}</span>
+          </button>
+          <button className="flex items-center space-x-[10px]">
+            <StatsticIcon/>
+            <span>{item.commentComment}</span>
+          </button>
+        </div>
       </div>
       <button className="absolute top-[21px] right-[25px]">
         <DotsIcon />
