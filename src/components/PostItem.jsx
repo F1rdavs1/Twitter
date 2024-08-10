@@ -1,57 +1,76 @@
-import React from "react";
-import { CommentIcon, DotsIcon, LikeIcon, ReplyIcon, ShareIcon,  StatsticIcon } from "../assets/Images/Icons";
-
-function PostItem({ item }) {
+import React, { useContext } from 'react'
+import { CommentIcon, ReplyIcon, LikeIcon, ShareIcon, DotsIcon, StatsticIcon } from '../assets/Images/Icons'
+import {Context} from "../context/Context"
+export default function PostItem({item}) {
+  const {postList, setPostList} = useContext(Context)
+  function handleCommentBtn(value) {
+    value.isCommented = !value.isCommented
+    item.commentCount = value.isCommented ? ++value.commentCount : --value.commentCount
+    if(value.commentCount == 0) value.commentCount = null
+    setPostList([...postList])
+  }
+  function handleReplyBtn(value) {
+    value.isReplyed = !value.isReplyed
+    item.replyCount = value.isReplyed ? ++value.replyCount : --value.replyCount
+    if(value.replyCount == 0) value.replyCount = null
+    setPostList([...postList])
+  }
+  function handleLikeBtn(value) {
+    value.isLiked = !value.isLiked
+    item.likeCount = value.isLiked ? ++value.likeCount : --value.likeCount
+    if(value.likeCount == 0) value.likeCount = null
+    setPostList([...postList])
+  }
+  function handleUplodeBtn(value) {
+    value.isUplode = !value.isUplode
+    item.uplode = value.isUplode ? ++value.uplode : --value.uplode
+    if(value.uplode == 0) value.uplode = null
+    setPostList([...postList])
+  }
+  function handleStatisticBtn(value) {
+    value.isStatistic = !value.isStatistic
+    item.statistic = value.isStatistic ? ++value.statistic : --value.statistic
+    if(value.statistic == 0) value.statistic = null
+    setPostList([...postList])
+  }
   return (
-    <li className="flex items-start space-x-[15px] relative  pt-[10px] pb-[21px] px-[25px] border-b-[1px] border-slate-400">
-      <img src={item.imgUrl} alt="Avatar Icon" width={60} height={60} />
-      <div className="">
-        <div>
-          <div className="flex space-x-[5px]">
+    <li className='flex relative space-x-[15px] items-start pt-[10px] px-[25px] pb-[21px] border-b-[1px] border-b-slate-400'>
+      <img src={item.imgUrl} alt="" />
+      <div>
+        <div className='flex space-x-[5px] '> 
             <strong>{item.name}</strong>
             <span>{item.email}</span>
-          </div>
-          <p>{item.comment}</p>
         </div>
-        {item.postImg ? (
-          <img
-            className="mt-[15px]"
-            src={item.postImg}
-            alt="Post Image"
-            width={679}
-            height={453}
-          />
-        ) : (
-          ""
-        )}
-        <div className="flex items-center space-x-[100px] mt-[22px]">
-          <button className="flex items-center space-x-[10px]">
-            <CommentIcon/>
-            <span>{item.commentComment}</span>
-          </button>
-          <button className="flex items-center space-x-[10px]">
-            <ReplyIcon/>
-            <span>{item.commentComment}</span>
-          </button>
-          <button className="flex items-center space-x-[10px]">
-            <LikeIcon/>
-            <span>{item.commentComment}</span>
-          </button>
-          <button className="flex items-center space-x-[10px]">
-            <ShareIcon/>
-            <span>{item.commentComment}</span>
-          </button>
-          <button className="flex items-center space-x-[10px]">
-            <StatsticIcon/>
-            <span>{item.commentComment}</span>
-          </button>
+        <p className='mb-[15px]'>{item.text}</p>
+        {item.postImg ? <img src={item.postImg} alt="kebab" width={679}  height={453}/> : ""}
+        <div className='flex w-[586px] justify-between mt-[22px]'>
+            <div onClick={() => handleCommentBtn(item)} className={`flex space-x-[10px] ${item.isCommented ? "text-blue-500" : "text-[#536471]"}`}>
+                <CommentIcon/>
+                <span>{item.commentCount}</span>
+            </div>
+            <div onClick={() => handleReplyBtn(item)} className={`flex space-x-[10px] ${item.isReplyed ? "text-green-500" : "text-[#536471]"}`}>
+                <ReplyIcon/>
+                <span>{item.replyCount}</span>
+            </div>
+            <div onClick={() => handleLikeBtn(item)} className={`flex space-x-[10px] ${item.isLiked ? "text-red-500" : "text-[#536471]"}`}>
+                <LikeIcon/>
+                <span>{item.likeCount}</span>
+            </div>
+            <div onClick={() => handleUplodeBtn(item)} className={`flex space-x-[10px] ${item.isUplode ? "text-yellow-500" : "text-[#536471]"}`}>
+                <ShareIcon/>
+                <span>{item.uplode}</span>
+            </div>
+            <div onClick={() => handleStatisticBtn(item)} className={`flex space-x-[10px] ${item.isStatistic ? "text-fuchsia-500" : "text-[#536471]"}`}>
+                <StatsticIcon/>
+                <span>{item.statistic}</span>
+            </div>
         </div>
       </div>
-      <button className="absolute top-[21px] right-[25px]">
-        <DotsIcon />
-      </button>
-    </li>
-  );
-}
 
-export default PostItem;
+      <button className='absolute top-[21px] right-[25px]'>
+        <DotsIcon/>
+      </button>
+
+    </li>
+  )
+}

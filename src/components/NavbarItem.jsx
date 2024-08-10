@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { HomeIcon } from "../assets/Images/Icons";
 
 function NavbarItem({ item, index }) {
   return (

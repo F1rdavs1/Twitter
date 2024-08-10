@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
   TwitterIcon,
@@ -15,9 +15,11 @@ import {
 import NavbarItem from "./NavbarItem";
 import Button from "./Button";
 import Bobur from "../assets/Images/Bobur.svg";
+import CustomModal from "./CustomModal";
 
 function Navbar() {
   const userData = JSON.parse(window.localStorage.getItem("token"));
+  const [openModal, setOpenModal] = useState(false)
   const navbarList = [
     {
       id: 1,
@@ -68,6 +70,10 @@ function Navbar() {
       icon: <MoreIcon />,
     },
   ];
+  function SignOut(){
+    localStorage.clear()
+    location.pathname = "/"
+  }
   return (
     <div className="w-[20%] pt-[31px] border-r-[1px] border-slate-400 h-screen overflow-y-auto">
       <Link to={"/"}>
@@ -79,7 +85,7 @@ function Navbar() {
         ))}
       </ul>
       <Button btn={"Tweet"} extraStyle={"py-[15px] w-[230px]"} />
-      <div className="flex gap-[4px] mt-[260px]">
+      <div className="flex gap-[4px] my-[20px]">
         <img src={Bobur} alt="Bobur Mavlonov" width={50} height={50} />
         <div className="flex flex-col">
           <strong className="capitalize font-semibold text-[16px] leading-[21.28px] text-[#000000]">
@@ -92,10 +98,17 @@ function Navbar() {
             @{userData.login}
           </a>
         </div>
-        <button className="ml-[42px]">
+        <button onClick={() => setOpenModal(true)} className="ml-[42px]">
           <DotsIcon />
         </button>
       </div>
+      <CustomModal isModal={openModal} setIsModal={setOpenModal}>
+        <h2 className="font-bold text-center text-[35px] mt-[20px] ">Chiqmoqchimisiz</h2>
+        <div className="flex justify-center space-x-[20px] mt-[50px]">
+          <Button onClick={() => setOpenModal(false)} btn={"Bekor qilish"} extraStyle={'w-[200px] bg-green-600'}/>
+          <Button onClick={SignOut} btn={"Rozi bo'lish"} extraStyle={'w-[200px] bg-red-600'}/>
+        </div>
+      </CustomModal>
     </div>
   );
 }

@@ -1,88 +1,76 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
-  DarkModeIcon,
-  GifIcon,
   SaveImgIcon,
-  ScheduleIcon,
-  SmileIcon,
+  GifIcon,
   StatsIcon,
+  SmileIcon,
+  ScheduleIcon,
+  DarkModeIcon,
+  SettingsIcon,
+  DotsIcon,
 } from "../../assets/Images/Icons";
 import Bobur from "../../assets/Images/Bobur.svg";
 import Button from "../../components/Button";
-import Designsta from "../../assets/Images/designsta.svg";
-import Cloutexhibition from "../../assets/Images/cloutexhibition.svg";
-import CreativePhoto from "../../assets/Images/creativePhoto.svg";
-import KebabImg from "../../assets/Images/kebab.png";
 import PostItem from "../../components/PostItem";
-function Home() {
+import { Context } from "../../context/Context";
+import AboutAcc from "../../components/AboutAcc";
+import Header from "../../components/Header";
+
+export default function Home() {
+  const { postList, setPostList } = useContext(Context);
+  const token = JSON.parse(localStorage.getItem("token"));
   const [postValue, setPostValue] = useState("");
-  const [postList, setPostList] = useState([
-    {
-      id: 1,
-      name: "Designsta",
-      imgUrl: Designsta,
+  const [postImg, setPostImg] = useState("");
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    const data = {
+      id: postList.length ? postList[postList.length - 1].id + 1 : 1,
+      name: token.login,
+      imgUrl: Bobur,
       email: "@inner · 25m",
-      comment:
-        "Twitterdagi ayol-erkak qarama-qarshiliginglardan o'zinglar zerikmadinglarmi?",
-      commentComment: "10",
-      replyCount: "1",
-      likeCount: "8",
+      comment: e.target.postValue.value,
+      commentCount: null,
+      replyCount: null,
+      likeCount: null,
       uplode: null,
       statistic: null,
-      postImg: null,
-    },
-    {
-      id: 2,
-      name: "cloutexhibition",
-      imgUrl: Cloutexhibition,
-      email: "@RajLahoti · 22m",
-      comment:
-        "YPIP dasturining bu yilgi sezoni ham o’z nihoyasiga yetmoqda. Mentorlik davomida talaba va yangi bitiruvchilarni o’sayotganini ko’rib hursand bo’ladi odam.",
-      commentComment: null,
-      replyCount: "5",
-      likeCount: "9",
-      uplode: null,
-      statistic: null,
-      postImg: null,
-    },
-    {
-      id: 3,
-      name: "CreativePhoto",
-      imgUrl: CreativePhoto,
-      email: "@cloutexhibition · 1h",
-      comment: "Обетда..... Кечиринглар",
-      commentComment: "10",
-      replyCount: "1",
-      likeCount: "8",
-      uplode: null,
-      statistic: null,
-      postImg: KebabImg,
-    },
-  ]);
+      postImg: postImg,
+    };
+    setPostList([data, ...postList]);
+    e.target.reset();
+  };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset();
+  };
   return (
-    <div className="w-[80%]">
-      <div className="w-[70%] border-r-[1px] h-screen border-slate-400 overflow-y-auto">
-        <div className="sticky top-0 z-50 bg-white p-[20px] border-b-[1px] border-slate-400 flex items-center justify-between">
-          <h2 className="font-bold text-[24px] leading-[31.92px] text-[#000000]">
-            Home
-          </h2>
-          <button>
-            <DarkModeIcon />
-          </button>
-        </div>
-        <form className="pb-[46px] pl-[22px] items-start relative flex space-x-[15px] border-b-[1px] border-slate-400">
+    <div className="w-[80%] flex">
+      <div className="w-[70%] border-r-[1px] border-r-slate-400 h-screen overflow-y-auto">
+        <Header title={'Home'}/>
+        <form
+          onSubmit={handleSubmitForm}
+          autoComplete="off"
+          className="pb-[46px] relative pl-[22px] flex items-start space-x-[15px] border-b-[1px] border-b-slate-400 "
+        >
           <img src={Bobur} alt="Bobur" width={60} height={60} />
-          <div className="flex flex-col w-full mt-[11px] ">
+          <div className="flex flex-col w-full mt-[11px] space-y-[51px] ">
             <input
-              onChange={(e) => setPostValue(e.target.value)}
-              className="font-semibold mb-[51px] text-[22px] leading-[29.26px] text-[#828282] outline-none"
               type="text"
+              onChange={(e) => setPostValue(e.target.value)}
               placeholder="What’s happening"
+              className="font-semibold text-[22px] outline-none placeholder:text-[#828282]"
               name="postValue"
             />
-            <div className="flex space-x-[20px]">
+            <div className="flex space-x-[22px]">
               <label>
-                <input type="file" className="hidden" />
+                <input
+                  onChange={(e) =>
+                    setPostImg(URL.createObjectURL(e.target.files[0]))
+                  }
+                  type="file"
+                  className="hidden"
+                />
                 <SaveImgIcon />
               </label>
               <label>
@@ -105,21 +93,47 @@ function Home() {
           </div>
           <Button
             btn={"Tweet"}
-            extraStyle={`max-w-[108px] absolute bottom-[5px] right-[18px] duration-300  ${
+            extraStyle={`!w-[108px] absolute bottom-[5px] right-[18px] duration-300  ${
               postValue ? "" : "opacity-[40%]"
             }`}
             type={"submit"}
           />
         </form>
         <ul>
-          {postList.map((item, index) => (
-            <PostItem key={index} item={item} />
+          {postList.map((item) => (
+            <PostItem key={item.id} item={item} />
           ))}
         </ul>
       </div>
-      <div className="w-[30%]"></div>
+
+      <div className="w-[30%] pt-[20px] pl-[28px]">
+        <form autoComplete="off" onSubmit={handleFormSubmit}>
+          <input
+            className="pl-[20px] outline-none w-[373px] py-[16px] bg-[#EFF3F4] rounded-[31px] text-[#5C6C79] focus:shadow-md duration-300"
+            type="text"
+            placeholder="Search Twitter"
+            name="searchInput"
+          />
+        </form>
+        <div className="w-[373px] bg-[#F7F9F9] rounded-[10px] pt-[20px] pb-[30px] px-[15px] mt-[20px]">
+          <div className="flex justify-between">
+            <strong className="text-bold text-[24px] leading-[31.92px]">
+              Trends for you
+            </strong>
+            <SettingsIcon />
+          </div>
+          <AboutAcc />
+          <AboutAcc />
+          <AboutAcc />
+          <AboutAcc />
+          <a
+            className="block mt-[30px] font-normal text-[18px] leading-[18px] text-[#1DA1F2]"
+            href="#"
+          >
+            Show more
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
-
-export default Home;
