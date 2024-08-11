@@ -58,25 +58,33 @@ function Profile() {
           </h3>
           <div className="flex justify-between">
             <div className="flex items-center justify-between space-x-[5px]">
-              <LocationIcon />
+              <button>
+                <LocationIcon />
+              </button>
               <span className="font-normal text-[18px] leading-[23.94px] text-[#666666]">
                 Mashag’daman
               </span>
             </div>
             <div className="flex items-center space-x-[5px]">
-              <LinkIcon />
+              <button>
+                <LinkIcon />
+              </button>
               <span className="font-normal text-[18px] leading-[23.94px] text-[#1DA1F2]">
                 t.me/boburjon_mavlonov
               </span>
             </div>
             <div className="flex items-center space-x-[5px]">
-              <BornIcon />
+              <button>
+                <BornIcon />
+              </button>
               <span className="font-normal text-[18px] leading-[23.94px] text-[#666666]">
                 Born November
               </span>
             </div>
             <div className="flex items-center space-x-[5px]">
-              <DataIcon />
+              <button>
+                <DataIcon />
+              </button>
               <span className="font-normal text-[18px] leading-[23.94px] text-[#666666]">
                 Joined
               </span>
@@ -148,7 +156,9 @@ function Profile() {
               <strong className="text-bold text-[24px] leading-[31.92px]">
                 Trends for you
               </strong>
-              <SettingsIcon />
+              <button>
+                <SettingsIcon />
+              </button>
             </div>
             <AboutAcc />
             <AboutAcc />

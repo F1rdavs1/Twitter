@@ -63,7 +63,9 @@ export default function PostItem({ item }) {
               item.isCommented ? "text-blue-500" : "text-[#536471]"
             }`}
           >
-            <CommentIcon />
+            <button>
+              <CommentIcon />
+            </button>
             <span>{item.commentCount}</span>
           </div>
           <div
@@ -72,7 +74,9 @@ export default function PostItem({ item }) {
               item.isReplyed ? "text-green-500" : "text-[#536471]"
             }`}
           >
-            <ReplyIcon />
+            <button>
+              <ReplyIcon />
+            </button>
             <span>{item.replyCount}</span>
           </div>
           <div
@@ -81,7 +85,9 @@ export default function PostItem({ item }) {
               item.isLiked ? "text-red-500" : "text-[#536471]"
             }`}
           >
-            <LikeIcon />
+            <button>
+              <LikeIcon />
+            </button>
             <span>{item.likeCount}</span>
           </div>
           <div
@@ -90,7 +96,9 @@ export default function PostItem({ item }) {
               item.isUplode ? "text-yellow-500" : "text-[#536471]"
             }`}
           >
-            <ShareIcon />
+            <button>
+              <ShareIcon />
+            </button>
             <span>{item.uplode}</span>
           </div>
           <div
@@ -99,7 +107,9 @@ export default function PostItem({ item }) {
               item.isStatistic ? "text-fuchsia-500" : "text-[#536471]"
             }`}
           >
-            <StatsticIcon />
+            <button>
+              <StatsticIcon />
+            </button>
             <span>{item.statistic}</span>
           </div>
         </div>

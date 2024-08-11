@@ -118,7 +118,9 @@ export default function Home() {
             <strong className="text-bold text-[24px] leading-[31.92px]">
               Trends for you
             </strong>
-            <SettingsIcon />
+            <button>
+              <SettingsIcon />
+            </button>
           </div>
           <AboutAcc />
           <AboutAcc />
