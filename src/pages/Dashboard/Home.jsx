@@ -5,9 +5,7 @@ import {
   StatsIcon,
   SmileIcon,
   ScheduleIcon,
-  DarkModeIcon,
   SettingsIcon,
-  DotsIcon,
 } from "../../assets/Images/Icons";
 import Bobur from "../../assets/Images/Bobur.svg";
 import Button from "../../components/Button";
@@ -29,7 +27,7 @@ export default function Home() {
       name: token.login,
       imgUrl: Bobur,
       email: "@inner · 25m",
-      comment: e.target.postValue.value,
+      homeComment: e.target.postValuee.value,
       commentCount: null,
       replyCount: null,
       likeCount: null,
@@ -47,7 +45,7 @@ export default function Home() {
   return (
     <div className="w-[80%] flex">
       <div className="w-[70%] border-r-[1px] border-r-slate-400 h-screen overflow-y-auto">
-        <Header title={'Home'}/>
+        <Header title={"Home"} />
         <form
           onSubmit={handleSubmitForm}
           autoComplete="off"
@@ -60,7 +58,7 @@ export default function Home() {
               onChange={(e) => setPostValue(e.target.value)}
               placeholder="What’s happening"
               className="font-semibold text-[22px] outline-none placeholder:text-[#828282]"
-              name="postValue"
+              name="postValuee"
             />
             <div className="flex space-x-[22px]">
               <label>

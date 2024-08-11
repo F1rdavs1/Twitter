@@ -3,8 +3,8 @@ import Bobur from "../../../assets/Images/Bobur.svg";
 import BoburProfile from "../../../assets/Images/bobur-profile.png";
 import {
   CommentIcon,
-  LikeIcon,
   ReplyIcon,
+  LikeIcon,
   ShareIcon,
   StatsticIcon,
 } from "../../../assets/Images/Icons";
@@ -27,23 +27,33 @@ function TweetsReplies() {
             jismoniy holatni normallashtirishni reja qildim
           </p>
           <ul className="flex justify-between">
-            <li className="flex">
-              <CommentIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <CommentIcon />
+              </button>
               <span>10</span>
             </li>
-            <li className="flex">
-              <ReplyIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <ReplyIcon />
+              </button>
               <span>10</span>
             </li>
-            <li className="flex">
-              <LikeIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <LikeIcon />
+              </button>
               <span>10</span>
             </li>
-            <li className="flex">
-              <ShareIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <ShareIcon />
+              </button>
             </li>
-            <li className="flex">
-              <StatsticIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <StatsticIcon />
+              </button>
             </li>
           </ul>
         </div>
@@ -64,22 +74,32 @@ function TweetsReplies() {
             aqlli odamlar nazdida. Gap faqat biznes trenerlar haqida emas.
           </p>
           <ul className="flex justify-between">
-            <li className="flex">
-              <CommentIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <CommentIcon />
+              </button>
             </li>
-            <li className="flex">
-              <ReplyIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <ReplyIcon />
+              </button>
               <span>5</span>
             </li>
-            <li className="flex">
-              <LikeIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <LikeIcon />
+              </button>
               <span>9</span>
             </li>
-            <li className="flex">
-              <ShareIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <ShareIcon />
+              </button>
             </li>
-            <li className="flex">
-              <StatsticIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <StatsticIcon />
+              </button>
             </li>
           </ul>
         </div>
@@ -98,22 +118,32 @@ function TweetsReplies() {
             <img src={BoburProfile} alt="" />A bo'pti maskamasman
           </p>
           <ul className="flex justify-between">
-            <li className="flex">
-              <CommentIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <CommentIcon />
+              </button>
             </li>
-            <li className="flex">
-              <ReplyIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <ReplyIcon />
+              </button>
               <span>5</span>
             </li>
-            <li className="flex">
-              <LikeIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <LikeIcon />
+              </button>
               <span>9</span>
             </li>
-            <li className="flex">
-              <ShareIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <ShareIcon />
+              </button>
             </li>
-            <li className="flex">
-              <StatsticIcon />
+            <li className="flex items-center gap-[10px]">
+              <button>
+                <StatsticIcon />
+              </button>
             </li>
           </ul>
         </div>

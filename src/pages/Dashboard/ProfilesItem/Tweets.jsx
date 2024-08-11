@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Tweets() {
-  return (
-    <div>tweeeeeey</div>
-  )
+  return <div>tweeeeeey</div>;
 }
 
-export default Tweets
+export default Tweets;

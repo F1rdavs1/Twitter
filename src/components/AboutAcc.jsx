@@ -1,5 +1,5 @@
 import React from "react";
-import { DotsIcon, SettingsIcon } from "../assets/Images/Icons";
+import { DotsIcon } from "../assets/Images/Icons";
 
 function AboutAcc() {
   return (

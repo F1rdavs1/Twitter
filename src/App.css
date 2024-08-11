@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar{
-    overflow: hidden;
+::-webkit-scrollbar {
+  overflow: hidden;
 }
 
-body{
-    overflow-y: hidden;
+body {
+  overflow-y: hidden;
 }
-.active strong{
-    font-weight: bold;
+.active strong {
+  font-weight: bold;
 }

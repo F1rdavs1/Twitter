@@ -19,7 +19,7 @@ import CustomModal from "./CustomModal";
 
 function Navbar() {
   const userData = JSON.parse(window.localStorage.getItem("token"));
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
   const navbarList = [
     {
       id: 1,
@@ -70,9 +70,9 @@ function Navbar() {
       icon: <MoreIcon />,
     },
   ];
-  function SignOut(){
-    localStorage.clear()
-    location.pathname = "/"
+  function SignOut() {
+    localStorage.clear();
+    location.pathname = "/";
   }
   return (
     <div className="w-[20%] pt-[31px] border-r-[1px] border-slate-400 h-screen overflow-y-auto">
@@ -103,10 +103,20 @@ function Navbar() {
         </button>
       </div>
       <CustomModal isModal={openModal} setIsModal={setOpenModal}>
-        <h2 className="font-bold text-center text-[35px] mt-[20px] ">Chiqmoqchimisiz</h2>
+        <h2 className="font-bold text-center text-[35px] mt-[20px] ">
+          Chiqmoqchimisiz
+        </h2>
         <div className="flex justify-center space-x-[20px] mt-[50px]">
-          <Button onClick={() => setOpenModal(false)} btn={"Bekor qilish"} extraStyle={'w-[200px] bg-green-600'}/>
-          <Button onClick={SignOut} btn={"Rozi bo'lish"} extraStyle={'w-[200px] bg-red-600'}/>
+          <Button
+            onClick={() => setOpenModal(false)}
+            btn={"Bekor qilish"}
+            extraStyle={"w-[200px] bg-green-600"}
+          />
+          <Button
+            onClick={SignOut}
+            btn={"Rozi bo'lish"}
+            extraStyle={"w-[200px] bg-red-600"}
+          />
         </div>
       </CustomModal>
     </div>
