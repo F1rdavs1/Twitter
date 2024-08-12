@@ -108,7 +108,7 @@ function Profile() {
             <li>
               <Link
                 className="font-normal text-[18px] leading-[23.94px] focus:font-bold focus:border-b-[4px] focus:border-[#1DA1F2] pb-[18px] focus:rounded-[2px] focus:duration-200"
-                to={"tweets-replies"}
+                to={""}
               >
                 Tweets
               </Link>

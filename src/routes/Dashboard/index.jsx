@@ -22,7 +22,7 @@ function DashboaedPage() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />}>
-          <Route index element={<Tweets />} />
+          <Route index path="" element={<Tweets />} />
           <Route path="tweets-replies" element={<TweetsReplies />} />
           <Route path="media" element={<Media />} />
           <Route path="likes" element={<Likes />} />
